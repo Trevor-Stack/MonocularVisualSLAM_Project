@@ -1,0 +1,46 @@
+cameras:
+- camera:
+    distortion:
+      parameters:
+        cols: 1
+        rows: 0
+        data: []
+      type: none
+    image_height: 480
+    image_width: 640
+    intrinsics:
+      cols: 1
+      data: [-2.065170e+02, 0.000000e+00, 2.207161e-03, -4.879622e-06, 1.865656e-08, 394.552874, 241.800066, 1.000330, 0.000219, 0.000257, 294.182260, 152.289570, -12.191217, 27.959546, 8.241525, -1.970397, 10.689256, 1.871609, -6.437684, 0.430037, 3.215544, 0.921484, 0.0, 1.0]
+      rows: 24
+    label: cam0
+    line-delay-nanoseconds: 0
+    type: omni
+  T_B_C:
+    cols: 4
+    rows: 4
+    data: [-0.04279531, -0.00237969,  0.99908103,  0.19499356,
+           -0.99880330, -0.02359508, -0.04283961,  0.04340662,
+            0.02367534, -0.99971877, -0.00136708, -0.01782382,
+            0.00000000,  0.00000000,  0.00000000,  1.00000000]
+label: /subt_model
+
+imu_params:
+  delay_imu_cam: 0.0
+  max_imu_delta_t: 0.01
+  acc_max: 176.0
+  omega_max: 17
+  sigma_omega_c: 12.0e-4
+  sigma_acc_c: 8.0e-3
+  sigma_omega_bias_c: 0.03
+  sigma_acc_bias_c: 0.1
+  sigma_integration: 0.0
+  g: 9.81
+  imu_rate: 200
+
+imu_initialization:
+  velocity: [0.0, 0.0, 0.0]
+  omega_bias: [0.0, 0.0, 0.0]
+  acc_bias: [0.0, 0.0, 0.0]
+  velocity_sigma: 2.0
+  omega_bias_sigma: 0.01
+  acc_bias_sigma: 0.1
