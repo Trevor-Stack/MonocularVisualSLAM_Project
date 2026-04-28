@@ -1,10 +1,19 @@
 # MonocularVisualSLAM_Project
 Final project for 16-833
 
+## Downloading the Datasets
+The Euroc rosbags can be downloaded [HERE](https://www.research-collection.ethz.ch/entities/researchdata/bcaf173e-5dac-484b-bc37-faf97a594f1f)
+
+The SubT rosbags can be downloaded [HERE](https://superodometry.com/iccv23_challenge_VI)
+
 
 ## Instructions for SVO
 
-Install SVO by following the instructions [HERE](https://github.com/uzh-rpg/rpg_svo_pro_open). Build with global map using iSAM2
+Install SVO by following the instructions [HERE](https://github.com/uzh-rpg/rpg_svo_pro_open). Build with global map using iSAM2.
+
+Place `/SVO/subt.launch` into the `/src/rpg_svo_pro_open/svo_ros/launch/` directory.
+
+Place `/SVO/subt.yaml` into the `/src/rpg_svo_pro_open/svo_ros/param/calib/` directory.
 
 ### In Terminal 1:
 ```
@@ -41,10 +50,18 @@ for bag in $(ls -v *.bag); do
   rosbag play "$bag"
 done
 ```
-
+### Converting .bag to .tum files
+Place the `svo_eval.bag` file into the `/SVO/` directory and run:
+```
+python SVO/bag_to_tum_svo.py
+```
 
 ## Instructions for VinsMono
 Install VinsMono by following the instructions [HERE](https://github.com/HKUST-Aerial-Robotics/VINS-Mono)
+
+Place `/VinsMono/subt.launch` into the `/src/VINS-Mono/vins_estimator/launch/` directory.
+
+Place `/VinsMono/subt_config.yaml` into the `/src/VINS-Mono/config/subt/` directory.
 
 
 ### In Terminal 1:
@@ -90,3 +107,25 @@ for bag in $(ls -v *.bag); do
   rosbag play "$bag"
 done
 ```
+
+### Converting .bag to .tum files
+Place the `vins_eval.bag` file into the `/VinsMono/` directory and run:
+```
+python VinsMono/bag_to_tum_vins.py
+```
+
+## Getting APE/RPE using EVO
+
+Install EVO:
+```
+pip install evo
+```
+
+Calculating and visulaizing APE and RPE (Example)
+```
+evo_ape tum VinsMono/vins_tums/laurel_hh2_gt.tum VinsMono/vins_tums/laurel_caverns_hh2_vins_slam.tum -a --plot --plot_mode xyz
+
+evo_rpe tum VinsMono/vins_tums/laurel_hh2_gt.tum VinsMono/vins_tums/laurel_caverns_hh2_vins_slam.tum -a --plot --plot_mode xyz
+```
+
+.tum files are provided in `/VinsMono/vins_tums/` and `/SVO/svo_tums/`
