@@ -7,6 +7,10 @@ The Euroc rosbags can be downloaded [HERE](https://www.research-collection.ethz.
 The SubT rosbags can be downloaded [HERE](https://superodometry.com/iccv23_challenge_VI)
 
 
+## Instructions for ORBSLAM3
+
+Install ORBSLAM3 by following the instructions [HERE](https://github.com/UZ-SLAMLab/ORB_SLAM3).
+
 ## Instructions for SVO
 
 Install SVO by following the instructions [HERE](https://github.com/uzh-rpg/rpg_svo_pro_open). Build with global map using iSAM2.
