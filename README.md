@@ -133,3 +133,8 @@ evo_rpe tum VinsMono/vins_tums/laurel_hh2_gt.tum VinsMono/vins_tums/laurel_caver
 ```
 
 .tum files are provided in `/VinsMono/vins_tums/` and `/SVO/svo_tums/`
+
+## Adding motion blur
+Run the file:
+```python add_motion_blur.py input outpu --kernel-size i```
+where i can be any kernel size 5, 7, 9, 15 (default 15)
